@@ -15,7 +15,7 @@ rp(url)
    console.log($("span.price", html).text());//smarts y delta hayq ue hacer un comparador o array y poner el segundo
    console.log($("h4.js-price-display", html).text());//maxtecno hacer que solo aparezca los numeros del principio
    console.log($("span.span-price-static-special", html).text());// delta hay que diferenciar de smart ya que tambnien tiene un spna price
-   console.log($("h1.prod-details-price", html).text());//hardDigital
+   console.log($("h1.prod-details-price", html).text());//hardGamers producto solo
 
 
   })

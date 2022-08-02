@@ -4,16 +4,26 @@
   "main": "prueba.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon Web-Scrapping/index.js"
+    "dev": "nodemon src/index.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.0",
     "node-fetch": "^3.2.9",
     "nodemon": "^2.0.19",
     "request-promise": "^4.2.6",
     "rp": "^0.2.0"
+  },
+  "imports": {
+    "#Config/*": "./src/config/*",
+    "#Routes/*": "./src/routes/*",
+    "#Controllers/*": "./src/controller/*",
+    "#Schemas/*": "./src/schemas/*",
+    "#Dto/*": "./src/dto/*"
   }
 }
