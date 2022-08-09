@@ -1,27 +1,26 @@
 import rp from 'request-promise'
 import $  from 'cheerio'
+import ExtractPriceName from '../helpers/ScrapingText.js'
+import ExtractDataUrl from '../helpers/ScrapingText.js'
 
 const extractInfoURl = async(req,res)=>{
 
-    const {urlCpu}= req.body
+    const {urlCpu,urlMotherBoard,urlram,urlSSD,urlHDD,urlGPU,urlPowerSupply}= req.body
 
-    console.log({urlCpu})
+   // console.log({urlCpu})
 
-    rp(urlCpu)
-  .then(function(html) {
-    console.log("putita")
-   const precio=$("div.textPrecio", html).text()
-   
- const nombre= $("h1.tituloProducto.hidden-xs", html).text()
-  console.log("listo")
+  const cpu= ExtractDataUrl(urlCpu)
  
-  return   res.send(console.log(nombre, precio))
-  })
-  .catch(function(err) {
-    //handle error
-    return res.send(err)
-  });
+ console.log(cpu)
+ let hola =() =>{
+  
+  console.log(cpu)
+ 
 
+ }
+
+  setTimeout( hola,5000)
+  
   
 }
 
