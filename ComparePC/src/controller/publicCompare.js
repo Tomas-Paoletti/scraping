@@ -9,17 +9,8 @@ const extractInfoURl = async(req,res)=>{
 
    // console.log({urlCpu})
 
-  const cpu= ExtractDataUrl(urlCpu)
- 
- console.log(cpu)
- let hola =() =>{
-  
+  const cpu= await ExtractDataUrl(urlCpu)
   console.log(cpu)
- 
-
- }
-
-  setTimeout( hola,5000)
   
   
 }
