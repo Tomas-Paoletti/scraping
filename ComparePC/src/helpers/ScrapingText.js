@@ -3,9 +3,28 @@ import $  from 'cheerio'
 
 
 const page = [{
-  namePage: 'venex.com.ar', 
+  namePage: 'venex.com.', 
   price: "div.textPrecio",
   name: "h1.tituloProducto.hidden-xs" 
+},
+{
+  namePage: "-digital.c",// this name is for page hard-digital
+  price: "p.product-price",
+  name: "my-2"
+},
+{
+  namePage: "gezatek.co",
+  price: "h7:gt(1)",
+  name: "h3:first"
+},
+{
+  namePage: "megasoftar",// this name is for page megasoftargentina
+  price: "font.precio:last",
+  name: "h2.title"
+},{
+  namePage: "ts.com.ar/",// this name is for page smarts
+  price: "span.price:eq(1)",//eq busca por la lista de elementos q salen
+  name: "span.base"
 }]
 
 
@@ -16,20 +35,23 @@ const ExtractDataUrl= async (Url) =>{
 
     // console.log('prueba', JSON.stringify(Url))
     // console.log('objeto', Url)
-    console.log('okey...')
+   
     let urlStringify =JSON.stringify(Url)      
-    
-     const pageProduct = page.find(page => page.namePage == urlStringify.substring(13,25))
-    //console.log(pageProduct)
+   console.log(urlStringify.substring(13,23))
+    //if( urlStringify.includes('s.com.ar')){urlStringify= 's.com.ar'}
+     const pageProduct = page.find(page => page.namePage == urlStringify.substring(13,23))
+    console.log(pageProduct.namePage)
      
 
     const html = await rp(Url);
   
    
      
-      let precio=($(pageProduct.price, html).text()).trim()// ;a funcion trim lo que hace es sacar los espacios en blanco alrededor de las palabras
+      let precio=($(pageProduct.price, html).text()).trim().replace(/[^\d]/g, '')// ;a funcion trim lo que hace es sacar los espacios en blanco alrededor de las palabras
 
-      precio =precio.slice(1)
+    if (pageProduct.namePage=== 'gezatek.com.' || 'ts.com.ar/'){precio/=100}
+      console.log(typeof(precio))
+ 
       let nombre= ($(pageProduct.name, html).text()).trim()
   
       console.log("listo")

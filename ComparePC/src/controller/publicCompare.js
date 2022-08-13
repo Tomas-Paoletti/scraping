@@ -11,8 +11,19 @@ const extractInfoURl = async(req,res)=>{
 
   const cpu= await ExtractDataUrl(urlCpu)
   console.log(cpu)
-  
-  
+ /* const mother = await ExtractDataUrl(urlMotherBoard)
+  console.log(mother)
+  const ram= await ExtractDataUrl(urlram)
+  console.log(ram)
+  const SSd= await ExtractDataUrl(urlSSD)
+  console.log(ssd)
+  const HDD= await ExtractDataUrl(urlHDD)
+  console.log(HDD)
+  const gpu= await ExtractDataUrl(urlGPU)
+  console.log(cpu)
+  const powerSuply= await ExtractDataUrl(urlPowerSupply)
+  console.log(urlPowerSupply)
+  */
 }
 
 export default extractInfoURl
